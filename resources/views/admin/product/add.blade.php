@@ -99,6 +99,6 @@
     {{--<script>--}}
         {{--CKEDITOR.replace('my_editor', options);--}}
     {{--</script>--}}
-    <script src="{{ asset('admins/product/add.js') }}"></script>
+    <script src="{{ asset('admins/product/app.js') }}"></script>
 
 @endsection

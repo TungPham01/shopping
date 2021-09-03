@@ -33,32 +33,35 @@
                                 <th scope="col">Giá</th>
                                 <th scope="col">Hình ảnh</th>
                                 <th scope="col">Danh mục</th>
+                                <th>Mô tả</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {{--@foreach($menus as $menu)--}}
+                            @foreach($products as $product)
                                 <tr>
-                                    <td scope="row">1</td>
-                                    <td scope="row">iphone 5</td>
-                                    <td scope="row">3000</td>
+                                    <td scope="row">{{ $product->id }}</td>
+                                    <td scope="row">{{ $product->name }}</td>
+                                    <td scope="row">{{ number_format($product->price)}}</td>
                                     <td scope="row">
-                                        <img src="" alt="h/a">
+                                        <img style="object-fit: cover" src="{{ $product->feature_image_path }}" width="150px" height="130px" alt="h/a">
                                     </td>
-                                    <td>Điện thoại</td>
+                                    {{--sử dụng orm relationship : trỏ đến hàm categories để lấy giá trị của bảng category--}}
+                                    <td>{{ optional($product->categories)->name }}</td>
+                                    <td>{!! $product->content !!}</td>
                                     <td>
-                                        {{--<a href="{{route('products.edit',$menu->id)}}" class="btn btn-warning">Edit</a>--}}
-                                        {{--<a onclick="return confirm('Bạn có chắc muốn xóa')" href="{{route('products.delete',$menu->id)}}" class="btn btn-danger ">Delete</a>--}}
+                                        <a href="{{route('products.edit',$product->id)}}" class="btn btn-warning">Edit</a>
+                                        <a onclick="return confirm('Bạn có chắc muốn xóa')" href="{{route('products.delete',$product->id)}}" class="btn btn-danger ">Delete</a>
                                     </td>
                                 </tr>
-                            {{--@endforeach--}}
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
                     <div class="col-12">
-                        {{--@if($menus->hasPages())--}}
-                            {{--{{ $menus->links() }}--}}
-                        {{--@endif--}}
+                        @if($products->hasPages())
+                            {{ $products->links() }}
+                        @endif
                     </div>
                 </div>
 
@@ -68,4 +71,8 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+@endsection
+
+@section('js')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
