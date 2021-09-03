@@ -1,0 +1,11 @@
+.select2-selection__choice {
+    background-color: #1b2d1f !important;
+}
+.select2-selection__rendered {
+    line-height: 20px !important;
+}
+.image_detail_product{
+    width: 100%;
+    object-fit: cover;
+    height: 170px;
+}
