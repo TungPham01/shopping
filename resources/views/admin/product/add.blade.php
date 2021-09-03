@@ -6,7 +6,7 @@
 
 @section('css')
     <link href="{{ asset('vendors/select2/select2.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('admins/product/add.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admins/product/style.css') }}" rel="stylesheet" />
 @endsection
 
 @section('content')

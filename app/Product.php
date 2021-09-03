@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use SoftDeletes;
     // thuộc tính không được phép insert, không có gì là tất cả đc insert
     // fillable là field đc insert vào trong hệ thống
     protected $guarded;

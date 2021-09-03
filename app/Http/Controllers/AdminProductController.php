@@ -34,7 +34,7 @@ class AdminProductController extends Controller
 
     public  function index() {
 //        latest: lấy cái mới nhất
-        $products = $this->product->latest()->paginate(10);
+        $products = $this->product->latest()->paginate(3);
         return view('admin.product.index',compact('products'));
     }
 
@@ -194,6 +194,19 @@ class AdminProductController extends Controller
     }
 
     public function delete($id){
-        dd($id);
+        try{
+            $this->product->find($id)->delete();
+            return response()->json([
+                'code' => 200,
+                'message' => 'success'
+            ],200);
+        }catch (\Exception $exception){
+            Log::error('Message: '. $exception->getMessage() . '-------- Line: ' . $exception->getLine());
+            return response()->json([
+               'code' => 500,
+                'message' => 'fail'
+            ],500);
+        }
+
     }
 }

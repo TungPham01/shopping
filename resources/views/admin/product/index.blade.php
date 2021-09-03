@@ -51,7 +51,7 @@
                                     <td>{!! $product->content !!}</td>
                                     <td>
                                         <a href="{{route('products.edit',$product->id)}}" class="btn btn-warning">Edit</a>
-                                        <a onclick="return confirm('Bạn có chắc muốn xóa')" href="{{route('products.delete',$product->id)}}" class="btn btn-danger ">Delete</a>
+                                        <a data-url="{{route('products.delete',$product->id)}}" href="" class="btn btn-danger action_delete">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -74,5 +74,6 @@
 @endsection
 
 @section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('vendors/sweetAlert2/sweetalert2@11.js') }}"></script>
+    <script src="{{ asset('admins/product/index.js') }}"></script>
 @endsection
