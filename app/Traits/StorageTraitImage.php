@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 trait StorageTraitImage
 {
     // upload file
+    // ts1: biến request, ts2: tên column truyền lên, ts3: folder lưu trữ
     public function storeTraitUpload($request, $fieldName, $folderName)
     {
         // kiểm tra xem có file upload không
