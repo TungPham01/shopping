@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Components\Recusive;
 use DB;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\ProductAddRequest;
 
 class AdminProductController extends Controller
 {
@@ -34,7 +35,7 @@ class AdminProductController extends Controller
 
     public  function index() {
 //        latest: lấy cái mới nhất
-        $products = $this->product->latest()->paginate(3);
+        $products = $this->product->latest()->paginate(config('constant.admin.paginate'));
         return view('admin.product.index',compact('products'));
     }
 
@@ -51,7 +52,7 @@ class AdminProductController extends Controller
         return $htmlOption;
     }
 
-    public function store(Request $request) {
+    public function store(ProductAddRequest $request) {
         DB::beginTransaction();
         try{
             $dataProductCreate = [

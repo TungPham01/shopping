@@ -17,7 +17,7 @@ class MenuController extends Controller
 
     public function index() {
 //        $menus = Menu::orderBy('name','asc')->paginate(10);
-        $menus = Menu::paginate(10);
+        $menus = Menu::paginate(config('constant.admin.paginate'));
         return view('admin.menus.index',compact('menus'));
     }
 
