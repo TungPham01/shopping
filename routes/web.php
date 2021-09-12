@@ -115,5 +115,14 @@ Route::prefix('admin')->group(function () {
         Route::post('/update/{id}','SliderController@update')->name('sliders.update');
         Route::get('/delete/{id}','SliderController@delete')->name('sliders.delete');
     });
+
+    Route::prefix('setting')->group(function () {
+        Route::get('/','SettingController@index')->name('setting.index');
+        Route::get('/create','SettingController@create')->name('setting.create');
+        Route::post('/store','SettingController@store')->name('setting.store');
+        Route::get('/edit/{id}','SettingController@edit')->name('setting.edit');
+        Route::post('/update/{id}','SettingController@update')->name('setting.update');
+        Route::get('/delete/{id}','SettingController@delete')->name('setting.delete');
+    });
 });
 

@@ -13,6 +13,7 @@ use App\Components\Recusive;
 use DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\ProductAddRequest;
+use Illuminate\Support\Facades\File;
 
 class AdminProductController extends Controller
 {
@@ -64,6 +65,8 @@ class AdminProductController extends Controller
             ];
             logger('Đã xong thêm product.' );
             $dataUploadFeatureImage = $this->storeTraitUpload($request,'feature_image_path', 'product');
+
+            // nếu có upload ảnh mới thì xóa ảnh cũ trong storage đi và cập nhật ảnh mới ở dưới
             if(!empty($dataUploadFeatureImage)){
                 $dataProductCreate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
                 $dataProductCreate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
@@ -133,6 +136,10 @@ class AdminProductController extends Controller
                 'category_id' => $request->category_id
             ];
             logger('Đã xong thêm product.' );
+            if(!empty($request->feature_image_path)){
+                $fileImage = public_path($this->product->find($id)->feature_image_path);
+                File::delete($fileImage);
+            }
             $dataUploadFeatureImage = $this->storeTraitUpload($request,'feature_image_path', 'product');
             if(!empty($dataUploadFeatureImage)){
                 $dataProductUpdate['feature_image_name'] = $dataUploadFeatureImage['file_name'];

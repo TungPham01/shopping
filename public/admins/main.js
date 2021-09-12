@@ -23,6 +23,9 @@ function actionDelete(e) {
                             'Your file has been deleted.',
                             'success'
                         )
+                        $('.swal2-confirm').click(function () {
+                            location.reload()
+                        })
                     }
                 },
                 error: function (error) {
