@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Helpers\Helper;
 use App\Product;
 use App\ProductImage;
 use App\ProductTag;
 use App\Tag;
-use App\Traits\StorageTraitImage;
 use Illuminate\Http\Request;
 use App\Components\Recusive;
 use DB;
@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\File;
 
 class AdminProductController extends Controller
 {
-    use StorageTraitImage;
-
     private  $category;
     private  $product;
     private  $productImage;
@@ -61,10 +59,11 @@ class AdminProductController extends Controller
                 'price' => $request->price,
                 'content' => $request->contents,
                 'user_id' => auth()->id(),
-                'category_id' => $request->category_id
+                'category_id' => $request->category_id,
+                'views_count' => 1
             ];
             logger('Đã xong thêm product.' );
-            $dataUploadFeatureImage = $this->storeTraitUpload($request,'feature_image_path', 'product');
+            $dataUploadFeatureImage = Helper::storeTraitUpload($request,'feature_image_path', 'product');
 
             // nếu có upload ảnh mới thì xóa ảnh cũ trong storage đi và cập nhật ảnh mới ở dưới
             if(!empty($dataUploadFeatureImage)){
@@ -76,7 +75,7 @@ class AdminProductController extends Controller
             // thêm dữ liệu vào bảng product_image(bảng có nhiều ảnh, ảnh chi tiết)
             if($request->hasFile('image_path')){
                 foreach($request->image_path as $fileItem){
-                    $dataProductImageDetail = $this->storeTraitUploadMultiple($fileItem,'product');
+                    $dataProductImageDetail = Helper::storeTraitUploadMultiple($fileItem,'product');
                     // C2:
                     $product->productImage()->create([
                         'image_path' => $dataProductImageDetail['file_path'],
@@ -152,6 +151,7 @@ class AdminProductController extends Controller
             // thêm dữ liệu vào bảng product_image(bảng có nhiều ảnh, ảnh chi tiết)
             if($request->hasFile('image_path')){
                 $this->productImage->where('product_id',$id)->delete();
+                dd($this->productImage);
                 if ($this->productImage->file_path) {
                     Storage::delete($product->product_image);
                 }

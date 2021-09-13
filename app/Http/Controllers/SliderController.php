@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\SliderAddRequest;
 use App\Slider;
-use App\Traits\StorageTraitImage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Session;
 
 class SliderController extends Controller
 {
-    use StorageTraitImage;
     // biến lưu trữ đối tượng: sd ở đoạn $this->slider
     private $slider;
 
@@ -23,7 +22,7 @@ class SliderController extends Controller
 
     public function index() {
         // cấu hình constant cho paginate dễ dàng ở nh nơi
-        $sliders = $this->slider->paginate(config('constant.admin.paginate'));
+        $sliders = $this->slider->latest()->paginate(config('constant.admin.paginate'));
         return view('admin.sliders.index',compact('sliders'));
     }
 
@@ -37,7 +36,7 @@ class SliderController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
             ];
-            $dataImage = $this->storeTraitUpload($request,'image_path','slider');
+            $dataImage = Helper::storeTraitUpload($request,'image_path','slider');
 
             // nếu có file update lên thì gán giá trị
             if(!empty($dataImage)){
@@ -67,7 +66,7 @@ class SliderController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
             ];
-            $dataImage = $this->storeTraitUpload($request,'image_path','slider');
+            $dataImage = Helper::storeTraitUpload($request,'image_path','slider');
 
             // nếu có upload ảnh mới thì xóa ảnh cũ trong storage đi và cập nhật ảnh mới ở dưới
             if(!empty($request->image_path)){
