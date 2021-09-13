@@ -42,7 +42,7 @@
                                     <td scope="row">
                                         <img style="object-fit: cover" src="{{ $slider->image_path }}" width="150px" height="130px" alt="h/a">
                                     </td>
-                                    <td>
+                                    <td style="width: 160px;">
                                         <a href="{{route('sliders.edit',$slider->id)}}" class="btn btn-warning">Edit</a>
                                         <a data-url="{{route('sliders.delete',$slider->id)}}" href="" class="btn btn-danger action_delete">Delete</a>
                                     </td>

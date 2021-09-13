@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', 'AdminController@loginAdmin');
+Route::get('/admin', 'AdminController@loginAdmin')->name('admin.login');
 Route::get('/adminLogout', 'AdminController@logoutAdmin')->name('admin.logout');
 Route::post('/admin', 'AdminController@postLoginAdmin');
 
@@ -70,4 +70,7 @@ Route::prefix('admin')->middleware('checkLogin')->group(function () {
         Route::get('/delete/{id}','SettingController@delete')->name('setting.delete');
     });
 });
+
+
+Route::get('','Frontend\HomeController@index');
 

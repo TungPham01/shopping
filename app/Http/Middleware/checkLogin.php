@@ -21,7 +21,7 @@ class checkLogin
             if($user){
                 return $next($request);
             }else{
-                return redirect('admin')->with('thongbao','Bạn không có quyền đăng nhập admin');
+                return route('admin.login');
             }
         }else{
             return redirect('admin');
