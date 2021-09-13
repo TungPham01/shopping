@@ -76,8 +76,8 @@
                                                 <div class="product-image-wrapper">
                                                     <div class="single-products">
                                                         <div class="productinfo text-center">
-                                                            <img src="/eshopper/images/home/gallery1.jpg" alt=""/>
-                                                            <h2>{{ $item->price }}</h2>
+                                                            <img src="{{ asset($item->feature_image_path) }}" alt=""/>
+                                                            <h2>{{ number_format($item->price )}} VNĐ</h2>
                                                             <p>{{ $item->name }}</p>
                                                             <a href="#" class="btn btn-default add-to-cart"><i
                                                                         class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -115,7 +115,7 @@
                                                     <div class="single-products">
                                                         <div class="productinfo text-center">
                                                             <img src="{{ asset($item->feature_image_path) }}" alt=""/>
-                                                            <h2>{{ number_format($item->price) }}</h2>
+                                                            <h2>{{ number_format($item->price) }} VNĐ</h2>
                                                             <p>{{ $item->name }}</p>
                                                             <a href="#" class="btn btn-default add-to-cart"><i
                                                                         class="fa fa-shopping-cart"></i>Add to cart</a>

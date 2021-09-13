@@ -22,6 +22,8 @@ class HomeController extends Controller
 
         // lấy sản phẩm theo lượt xem giảm dần
         $productsRecomment  = Product::latest('views_count','desc')->take(6)->get();
-        return view('front.home.home',compact('slider','categories','products','productsRecomment'));
+
+        $categoriesLimit = Category::where('parent_id',0)->get();
+        return view('front.home.home',compact('slider','categories','products','productsRecomment','categoriesLimit'));
     }
 }

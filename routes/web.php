@@ -72,5 +72,5 @@ Route::prefix('admin')->middleware('checkLogin')->group(function () {
 });
 
 
-Route::get('','Frontend\HomeController@index');
+Route::get('','Frontend\HomeController@index')->name('front.home');
 
