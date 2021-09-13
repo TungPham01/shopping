@@ -12,7 +12,7 @@ class AdminController extends Controller
         if(Auth::check()){
             return redirect()->to('home');
         }
-        return view('login');
+        return view('admin.login');
     }
 
     public function postLoginAdmin(Request $request) {

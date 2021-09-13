@@ -115,5 +115,8 @@
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
                         class="fas fa-th-large"></i></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.logout')}}">Logout</a>
+        </li>
     </ul>
 </nav>

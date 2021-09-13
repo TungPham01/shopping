@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/admin', 'AdminController@loginAdmin');
-Route::get('/adminLogout', 'AdminController@logoutAdmin');
+Route::get('/adminLogout', 'AdminController@logoutAdmin')->name('admin.logout');
 Route::post('/admin', 'AdminController@postLoginAdmin');
 
 Route::get('/home', function () {
-    return view('home');
+    return view('admin.home');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware'], function () {

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.admin')
 
 @section('title')
     Sliders
@@ -8,7 +8,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-    @include('partials.content-header',['name' => 'sliders' , 'key' => 'List'])
+    @include('admin.partials.content-header',['name' => 'sliders' , 'key' => 'List'])
     <!-- /.content-header -->
 
         <!-- Main content -->

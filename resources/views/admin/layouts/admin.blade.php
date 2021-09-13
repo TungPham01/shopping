@@ -22,15 +22,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
 
     <!-- Navbar -->
-@include('partials.header')
+@include('admin.partials.header')
 <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-@include('partials.siderbar')
+@include('admin.partials.siderbar')
 
 @yield('content')
 <!-- Main Footer -->
-    @include('partials.footer')
+    @include('admin.partials.footer')
 </div>
 <!-- ./wrapper -->
 
