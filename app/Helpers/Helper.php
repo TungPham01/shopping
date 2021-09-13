@@ -1,15 +1,23 @@
 <?php
 
-namespace App\Traits;
+namespace App\Helpers;
 
+use App\Setting;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-trait StorageTraitImage
+class Helper
 {
-    // upload file
-    // ts1: biến request, ts2: tên column truyền lên, ts3: folder lưu trữ
-    public function storeTraitUpload($request, $fieldName, $folderName)
+    public static function getConfigValueFromSettingTable($configKey)
+    {
+        $setting = Setting::where('config_key', $configKey)->first();
+        if (!empty($setting)) {
+            return $setting->config_value;
+        }
+        return null;
+    }
+
+    public static function storeTraitUpload($request, $fieldName, $folderName)
     {
         // kiểm tra xem có file upload không
         if ($request->hasFile($fieldName)) {
@@ -37,7 +45,7 @@ trait StorageTraitImage
         return null;
     }
 
-    public function storeTraitUploadMultiple($file, $folderName)
+    public static function storeTraitUploadMultiple($file, $folderName)
     {
         // lấy tên gốc của ảnh để sau tiện tìm ảnh
         $fileNameOrigin = $file->getClientOriginalName();
