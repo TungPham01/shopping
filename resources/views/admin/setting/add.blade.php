@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.admin')
 
 @section('title')
     Thêm mới Setting
@@ -12,7 +12,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-    @include('partials.content-header',['name' => 'Setting' , 'key' => 'Add'])
+    @include('admin.partials.content-header',['name' => 'Setting' , 'key' => 'Add'])
 
     <!-- /.content-header -->
 
