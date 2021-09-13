@@ -63,7 +63,7 @@ class AdminProductController extends Controller
                 'views_count' => 1
             ];
             logger('Đã xong thêm product.' );
-            $dataUploadFeatureImage = Helper::storeTraitUpload($request,'feature_image_path', 'product');
+            $dataUploadFeatureImage = Helper::storeHelperUpload($request,'feature_image_path', 'product');
 
             // nếu có upload ảnh mới thì xóa ảnh cũ trong storage đi và cập nhật ảnh mới ở dưới
             if(!empty($dataUploadFeatureImage)){
@@ -75,7 +75,7 @@ class AdminProductController extends Controller
             // thêm dữ liệu vào bảng product_image(bảng có nhiều ảnh, ảnh chi tiết)
             if($request->hasFile('image_path')){
                 foreach($request->image_path as $fileItem){
-                    $dataProductImageDetail = Helper::storeTraitUploadMultiple($fileItem,'product');
+                    $dataProductImageDetail = Helper::storeHelperUploadMultiple($fileItem,'product');
                     // C2:
                     $product->productImage()->create([
                         'image_path' => $dataProductImageDetail['file_path'],
@@ -139,7 +139,7 @@ class AdminProductController extends Controller
                 $fileImage = public_path($this->product->find($id)->feature_image_path);
                 File::delete($fileImage);
             }
-            $dataUploadFeatureImage = $this->storeTraitUpload($request,'feature_image_path', 'product');
+            $dataUploadFeatureImage = Helper::storeHelperUpload($request,'feature_image_path', 'product');
             if(!empty($dataUploadFeatureImage)){
                 $dataProductUpdate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
                 $dataProductUpdate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
@@ -156,7 +156,7 @@ class AdminProductController extends Controller
                     Storage::delete($product->product_image);
                 }
                 foreach($request->image_path as $fileItem){
-                    $dataProductImageDetail = $this->storeTraitUploadMultiple($fileItem,'product');
+                    $dataProductImageDetail = Helper::storeHelperUploadMultiple($fileItem,'product');
                     // C2:
                     $product->productImage()->create([
                         'image_path' => $dataProductImageDetail['file_path'],

@@ -36,7 +36,7 @@ class SliderController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
             ];
-            $dataImage = Helper::storeTraitUpload($request,'image_path','slider');
+            $dataImage = Helper::storeHelperUpload($request,'image_path','slider');
 
             // nếu có file update lên thì gán giá trị
             if(!empty($dataImage)){
@@ -66,7 +66,7 @@ class SliderController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
             ];
-            $dataImage = Helper::storeTraitUpload($request,'image_path','slider');
+            $dataImage = Helper::storeHelperUpload($request,'image_path','slider');
 
             // nếu có upload ảnh mới thì xóa ảnh cũ trong storage đi và cập nhật ảnh mới ở dưới
             if(!empty($request->image_path)){

@@ -17,7 +17,7 @@ class Helper
         return null;
     }
 
-    public static function storeTraitUpload($request, $fieldName, $folderName)
+    public static function storeHelperUpload($request, $fieldName, $folderName)
     {
         // kiểm tra xem có file upload không
         if ($request->hasFile($fieldName)) {
@@ -45,7 +45,7 @@ class Helper
         return null;
     }
 
-    public static function storeTraitUploadMultiple($file, $folderName)
+    public static function storeHelperUploadMultiple($file, $folderName)
     {
         // lấy tên gốc của ảnh để sau tiện tìm ảnh
         $fileNameOrigin = $file->getClientOriginalName();
