@@ -19,7 +19,7 @@
         #login .container #login-row #login-column #login-box {
             margin-top: 120px;
             max-width: 600px;
-            height: 320px;
+            height: 380px;
             border: 1px solid #9C9C9C;
             background-color: #EAEAEA;
         }
@@ -38,7 +38,7 @@
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
                 <div id="login-box" class="col-md-12">
-                    <form id="login-form" class="form" action="" method="post">
+                    <form id="login-form" class="form " action="" method="post">
                         @csrf
                         <h3 class="text-center text-info">Login</h3>
                         @if(session('status'))

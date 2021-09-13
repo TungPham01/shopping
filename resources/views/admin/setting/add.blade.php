@@ -52,12 +52,9 @@
                             @elseif(request()->type === 'textarea')
                                 <div class="form-group">
                                     <label>Config value: </label>
-                                    <textarea name="config_value" id="my_editor" cols="30" rows="5" class="form-control ">
-                                        {{ old('config_value') }}
-                                    </textarea>
+                                    <textarea name="config_value" placeholder="Nhập config value"  rows="5" class="form-control ">{{ old('config_value') }}</textarea>
                                 </div>
                             @endif
-
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
@@ -73,6 +70,5 @@
 
 @section('js')
     <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
-    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
     <script src="{{ asset('admins/product/app.js') }}"></script>
 @endsection
