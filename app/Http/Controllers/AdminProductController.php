@@ -152,7 +152,6 @@ class AdminProductController extends Controller
             // thêm dữ liệu vào bảng product_image(bảng có nhiều ảnh, ảnh chi tiết)
             if($request->hasFile('image_path')){
                 $this->productImage->where('product_id',$id)->delete();
-                dd($this->productImage);
                 if ($this->productImage->file_path) {
                     Storage::delete($product->product_image);
                 }
