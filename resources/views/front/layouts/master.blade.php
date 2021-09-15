@@ -19,7 +19,19 @@
 
     @include('front.partials.slider')
 
-    @yield('content')
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    @include('front.partials.sidebar')
+                </div>
+
+                @yield('content')
+
+            </div>
+        </div>
+    </section>
 
     @include('front.partials.footer')
 
@@ -28,7 +40,7 @@
         <script src="{{asset('eshopper/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('eshopper/js/jquery.scrollUp.min.js')}}"></script>
         <script src="{{asset('eshopper/js/price-range.js')}}"></script>
-        <script src="{{asset('eshopperjs/jquery.prettyPhoto.js')}}"></script>
+{{--        <script src="{{asset('eshopperjs/jquery.prettyPhoto.js')}}"></script>--}}
         <script src="{{asset('eshopper/js/main.js')}}"></script>
         @yield('js')
     </body>

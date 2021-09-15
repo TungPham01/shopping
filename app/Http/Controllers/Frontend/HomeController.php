@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+//    chỉ dùng trong cùng class
+//    public function __construct()
+//    {
+//        $categoriesLimit = Category::where('parent_id',0)->get();
+//        $slider = Slider::latest()->take(3)->get();
+//        view()->share('categoriesLimit',$categoriesLimit);
+//        view()->share('slider',$slider);
+//    }
+
     public function index() {
         // LẤY 3 CÁI slide mới nhất để hiển thị
         $slider = Slider::latest()->take(3)->get();
