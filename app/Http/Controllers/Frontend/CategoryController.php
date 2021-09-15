@@ -15,7 +15,7 @@ class CategoryController extends Controller
         $categoriesLimit = Category::where('parent_id', 0)->get();
         $slider = Slider::latest()->take(3)->get();
         $categories = Category::where('parent_id', 0)->get();
-        $products = Product::where('category_id', $id)->paginate(12);
+        $products = Product::where('category_id', $id)->paginate(9);
         return view('front.category.product.index', compact('categoriesLimit', 'slider', 'categories', 'products'));
     }
 }

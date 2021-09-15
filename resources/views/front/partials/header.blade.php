@@ -89,12 +89,8 @@
                             <span class="icon-bar"></span>
                         </button>
                     </div>
-                    @include('front.partials.menu')
-                </div>
-                <div class="col-sm-12">
-                    <div class="search_box pull-right">
-                        <input type="text" placeholder="Search"/>
-                    </div>
+                    @include('front.partials.menu2')
+                    {{--@include('front.partials.menu')--}}
                 </div>
             </div>
         </div>

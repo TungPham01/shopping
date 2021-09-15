@@ -74,4 +74,5 @@ Route::prefix('admin')->middleware('checkLogin')->group(function () {
 
 Route::get('','Frontend\HomeController@index')->name('front.home');
 Route::get('/category/{slug}/{id}','Frontend\CategoryController@index')->name('front.category');
+Route::get('/products','Frontend\ProductController@index')->name('front.products');
 

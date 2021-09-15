@@ -1,5 +1,5 @@
 @extends('front.layouts.master')
-@section('title') Product  @endsection
+@section('title') Product All @endsection
 
 @section('content')
     <section>
