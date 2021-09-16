@@ -72,7 +72,7 @@ Route::prefix('admin')->middleware('checkLogin')->group(function () {
 });
 
 
-Route::get('','Frontend\HomeController@index')->name('front.home');
-Route::get('/category/{slug}/{id}','Frontend\CategoryController@index')->name('front.category');
-Route::get('/products','Frontend\ProductController@index')->name('front.products');
+Route::get('','Frontend\FrontHomeController@index')->name('front.home');
+Route::get('/category/{slug}/{id}','Frontend\FrontCategoryController@index')->name('front.category');
+Route::get('/products','Frontend\FrontProductController@index')->name('front.products');
 

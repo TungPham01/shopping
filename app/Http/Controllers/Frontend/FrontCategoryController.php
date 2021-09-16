@@ -8,7 +8,7 @@ use App\Product;
 use App\Slider;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class FrontCategoryController extends Controller
 {
     public function index($slug,$id)
     {

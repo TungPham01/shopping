@@ -36,7 +36,7 @@
             <div class="col-sm-3">
                 <div class="search_box pull-right">
                     <form action="{{ route('front.products') }}" method="get">
-                        <input type="text" placeholder="Search" name="searchProduct"/>
+                        <input type="text" placeholder="Tìm sản phẩm" name="searchProductName" value="{{ request()->searchProductName }}"/>
                     </form>
                 </div>
             </div>

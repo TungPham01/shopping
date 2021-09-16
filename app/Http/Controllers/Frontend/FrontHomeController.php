@@ -8,7 +8,7 @@ use App\Product;
 use App\Slider;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class FrontHomeController extends Controller
 {
 //    chỉ dùng trong cùng class
 //    public function __construct()

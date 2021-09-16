@@ -6,13 +6,13 @@
 
         <div class="col-sm-9 padding-right">
             <div class="features_items"><!--features_items-->
-                <h2 class="title text-center">Features Items</h2>
+                <h2 class="title text-center">Products Items</h2>
                 @foreach($products as $product)
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="{{ $product->feature_image_path }}" alt=""/>
+                                    <img src="{{ $product->feature_image_path }}" height="220px;" alt=""/>
                                     <h2>{{ number_format($product->price ) }} VNĐ</h2>
                                     <p>{{ $product->name }}</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
