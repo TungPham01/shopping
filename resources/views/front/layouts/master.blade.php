@@ -42,6 +42,7 @@
         <script src="{{asset('eshopper/js/price-range.js')}}"></script>
 {{--        <script src="{{asset('eshopperjs/jquery.prettyPhoto.js')}}"></script>--}}
         <script src="{{asset('eshopper/js/main.js')}}"></script>
+        <script src="{{ asset('vendors/sweetAlert2/sweetalert2@11.js') }}"></script>
         @yield('js')
     </body>
 </html>

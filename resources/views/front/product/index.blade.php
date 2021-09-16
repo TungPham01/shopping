@@ -15,16 +15,8 @@
                                     <img src="{{ $product->feature_image_path }}" height="220px;" alt=""/>
                                     <h2>{{ number_format($product->price ) }} VNĐ</h2>
                                     <p>{{ $product->name }}</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+                                    <a href="#" data-href="{{route('front.addToCart',['id'=>$product->id])}}"  class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
                                         to cart</a>
-                                </div>
-                                <div class="product-overlay">
-                                    <div class="overlay-content">
-                                        <h2>{{ number_format($product->price ) }} VNĐ</h2>
-                                        <p>{{ $product->name }}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i
-                                                    class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    </div>
                                 </div>
                             </div>
                             <div class="choose">
@@ -45,4 +37,35 @@
 
     </section>
 
+@endsection
+
+@section('js')
+    <script>
+        function addToCart(event) {
+            event.preventDefault()
+            var href = $(this).attr('data-href');
+            $.ajax({
+                url : href,
+                type: 'get',
+                success: function (data) {
+                   if(data.code == 200){
+                       Swal.fire(
+                           'Success!',
+                           'Thêm sản phẩm vào giỏ hàng thành công',
+                           'success'
+                       )
+
+                   }
+                },
+                error: function (error) {
+
+                }
+
+            })
+        }
+
+        $(function () {
+            $('.add-to-cart').click(addToCart)
+        })
+    </script>
 @endsection
