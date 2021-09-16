@@ -74,5 +74,11 @@ Route::prefix('admin')->middleware('checkLogin')->group(function () {
 
 Route::get('','Frontend\FrontHomeController@index')->name('front.home');
 Route::get('/category/{slug}/{id}','Frontend\FrontCategoryController@index')->name('front.category');
+
 Route::get('/products','Frontend\FrontProductController@index')->name('front.products');
+
+Route::get('/products/add-to-cart/{id}','Frontend\FrontProductController@addToCart')->name('front.addToCart');
+Route::get('/products/show-cart','Frontend\FrontProductController@showCart')->name('front.showCart');
+Route::get('/products/remove-cart/{id}','Frontend\FrontProductController@removeCart')->name('front.removeCart');
+Route::post('/products/edit-cart','Frontend\FrontProductController@editCart')->name('front.editCart');
 
