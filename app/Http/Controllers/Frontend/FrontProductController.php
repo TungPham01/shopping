@@ -47,8 +47,9 @@ class FrontProductController extends Controller
         return view('front.cart.checkout',compact('carts'));
     }
 
-    public function removeCart() {
-
+    public function removeCart($id) {
+        \Cart::remove($id);
+        return redirect()->route('front.showCart');
     }
 
     public  function editCart(Request $request) {
