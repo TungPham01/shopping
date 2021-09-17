@@ -25,7 +25,7 @@ class UpdateSettingRequest extends FormRequest
     {
         return [
             // id là id từ url
-            'config_key' => ['required','max:256','unique:settings,config_key,'.$this->id],
+            'config_key' => ['required','max:256','unique:settings,config_key,'.$this->id.',id,deleted_at,NULL'],
             'config_value' => 'required'
         ];
     }

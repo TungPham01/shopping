@@ -20,10 +20,11 @@ class SliderController extends Controller
         $this->slider = $slider;
     }
 
-    public function index() {
+    public function index(Request $request) {
         // cấu hình constant cho paginate dễ dàng ở nh nơi
         $sliders = $this->slider->latest()->paginate(config('constant.admin.paginate'));
-        return view('admin.sliders.index',compact('sliders'));
+        $page = $request->page ?? 1;
+        return view('admin.sliders.index',compact('sliders','page'));
     }
 
     public function create() {

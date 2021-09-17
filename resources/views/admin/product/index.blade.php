@@ -38,9 +38,12 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $i = (($page - 1) * 5) + 1;
+                            @endphp
                             @foreach($products as $product)
                                 <tr>
-                                    <td scope="row">{{ $product->id }}</td>
+                                    <td scope="row">{{ $i++ }}</td>
                                     <td scope="row">{{ $product->name }}</td>
                                     <td scope="row">{{ number_format($product->price)}}</td>
                                     <td scope="row">

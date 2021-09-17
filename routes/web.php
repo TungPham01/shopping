@@ -19,7 +19,7 @@ Route::post('/admin', 'AdminController@postLoginAdmin');
 
 Route::get('/home', function () {
     return view('admin.home');
-});
+})->name('admin.home');
 
 // cấu hình thư viện quản lý file 'laravel-filemanager'
 Route::group(['prefix' => 'laravel-filemanager', 'middleware'], function () {

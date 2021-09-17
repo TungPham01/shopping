@@ -10,10 +10,10 @@ use Illuminate\Support\Str;
 class CategoryController extends Controller
 {
     //
-    public function index()  {
+    public function index(Request $request)  {
         $categories = $this->category->latest()->paginate(config('constant.admin.paginate'));
-
-        return view('admin.category.index',compact('categories'));
+        $page = $request->page ?? 1;
+        return view('admin.category.index',compact('categories','page'));
     }
 
     private $category;

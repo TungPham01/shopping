@@ -29,9 +29,12 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $i = (($page - 1) * 5) + 1;
+                            @endphp
                             @foreach($categories as $category)
                                 <tr>
-                                    <th scope="row">{{ $category->id }}</th>
+                                    <th scope="row">{{$i++ }}</th>
                                     <td>{{ $category->name }}</td>
                                     <td>
                                         <a href="{{ route('categories.edit',$category->id) }}" class="btn btn-warning">Edit</a>

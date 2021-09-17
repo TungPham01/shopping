@@ -17,7 +17,7 @@
                 <img src="adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Xin chào: {{ auth()->user()->name }}
+                <a href="{{ route('admin.home') }}" class="d-block">Xin chào: {{ auth()->user()->name }}
                 </a>
             </div>
         </div>

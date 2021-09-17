@@ -18,9 +18,10 @@ class SettingController extends Controller
         $this->setting = $setting;
     }
 
-    public function index() {
+    public function index(Request $request) {
         $setting = $this->setting->latest()->paginate(config('constant.admin.paginate'));
-        return view('admin.setting.index',compact('setting'));
+        $page = $request->page ?? 1;
+        return view('admin.setting.index',compact('setting','page'));
     }
 
     public function create() {

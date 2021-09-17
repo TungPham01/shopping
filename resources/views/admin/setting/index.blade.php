@@ -46,9 +46,12 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $i = (($page - 1) * 5) + 1;
+                            @endphp
                                 @foreach($setting as $set)
                                     <tr>
-                                        <td scope="row">{{ $set->id }}</td>
+                                        <td scope="row">{{ $i++ }}</td>
                                         <td scope="row">{{ $set->config_key }}</td>
                                         <td scope="row">{!! $set->config_value !!} </td>
                                         <td scope="row">{{ $set->type }} </td>

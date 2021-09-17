@@ -32,10 +32,11 @@ class AdminProductController extends Controller
         $this->productTag= $productTag;
     }
 
-    public  function index() {
+    public  function index(Request $request) {
 //        latest: lấy cái mới nhất
         $products = $this->product->latest()->paginate(config('constant.admin.paginate'));
-        return view('admin.product.index',compact('products'));
+        $page = $request->page ?? 1;
+        return view('admin.product.index',compact('products','page'));
     }
 
     public  function  create() {

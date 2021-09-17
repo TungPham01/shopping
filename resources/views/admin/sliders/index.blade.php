@@ -34,9 +34,12 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $i = (($page - 1) * 5) + 1;
+                            @endphp
                             @foreach($sliders as $slider)
                                 <tr>
-                                    <td scope="row">{{ $slider->id }}</td>
+                                    <td scope="row">{{ $i++ }}</td>
                                     <td scope="row">{{ $slider->name }}</td>
                                     <td scope="row">{!! $slider->description !!} </td>
                                     <td scope="row">
