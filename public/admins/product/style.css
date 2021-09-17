@@ -4,6 +4,9 @@
 .select2-selection__rendered {
     line-height: 20px !important;
 }
+.select2-selection__clear{
+    margin-top: -5px;
+}
 .image_detail_product{
     width: 100%;
     object-fit: cover;
