@@ -26,6 +26,7 @@ class FrontHomeController extends Controller
         // lấy category cha
         $categories = Category::where('parent_id',0)->get();
 
+        $categoriesAll = Category::all();
         // lấy 6 sản phẩm mới nhất
         $products = Product::latest()->take(6)->get();
 
@@ -33,6 +34,6 @@ class FrontHomeController extends Controller
         $productsRecomment  = Product::latest('views_count','desc')->take(6)->get();
 
         $categoriesLimit = Category::where('parent_id',0)->get();
-        return view('front.home.home',compact('slider','categories','products','productsRecomment','categoriesLimit'));
+        return view('front.home.home',compact('slider','categories','products','productsRecomment','categoriesLimit','categoriesAll'));
     }
 }

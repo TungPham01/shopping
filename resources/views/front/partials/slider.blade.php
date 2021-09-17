@@ -20,7 +20,6 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <img style="width: 490px; height: 450px; object-fit: cover" src="{{ asset($sl->image_path) }}" class="girl img-responsive" alt="" />
-                                    <img src="/eshopper/images/home/pricing.png"  class="pricing" alt="" />
                                 </div>
                             </div>
                         @endforeach

@@ -21,6 +21,7 @@ Route::get('/home', function () {
     return view('admin.home');
 });
 
+// cấu hình thư viện quản lý file 'laravel-filemanager'
 Route::group(['prefix' => 'laravel-filemanager', 'middleware'], function () {
     UniSharp\LaravelFilemanager\Lfm::routes();
 });
@@ -71,7 +72,7 @@ Route::prefix('admin')->middleware('checkLogin')->group(function () {
     });
 });
 
-
+// CLIENT
 Route::get('','Frontend\FrontHomeController@index')->name('front.home');
 Route::get('/category/{slug}/{id}','Frontend\FrontCategoryController@index')->name('front.category');
 

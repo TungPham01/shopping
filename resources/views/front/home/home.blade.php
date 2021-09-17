@@ -51,7 +51,7 @@
         <div class="category-tab">
             <div class="col-sm-12">
                 <ul class="nav nav-tabs">
-                    @foreach($categories as $key => $category)
+                    @foreach($categoriesAll as $key => $category)
                         <li class="{{  $key == 0  ? 'active' : '' }}">
                             <a href="#category_tab_{{ $category->id }}"
                                data-toggle="tab">{{ $category->name }}</a>
@@ -60,7 +60,7 @@
                 </ul>
             </div>
             <div class="tab-content">
-                @foreach($categories as $key => $category)
+                @foreach($categoriesAll as $key => $category)
                     <div class="tab-pane fade {{ $key == 0  ? 'active in' : ''   }}"
                          id="category_tab_{{ $category->id }}">
                         @if($category->products->count())
@@ -73,7 +73,7 @@
                                                      alt=""/>
                                                 <h2>{{ number_format($item->price )}} VNĐ</h2>
                                                 <p>{{ $item->name }}</p>
-                                                <a data-href="{{route('front.addToCart',['id'=>$product->id])}}" class="btn btn-default add-to-cart"><i
+                                                <a data-href="{{route('front.addToCart',['id'=>$item->id])}}" class="btn btn-default add-to-cart"><i
                                                             class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
 
@@ -83,7 +83,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <span style="padding-left:15px;">Danh mục chưa có sản phẩm</span>
+                            <span style="padding-left:15px;">Danh mục tạm hết sản phẩm</span>
                         @endif
                     </div>
                 @endforeach
@@ -112,7 +112,7 @@
                                                      alt=""/>
                                                 <h2>{{ number_format($item->price) }} VNĐ</h2>
                                                 <p>{{ $item->name }}</p>
-                                                <a data-href="{{route('front.addToCart',['id'=>$product->id])}}" class="btn btn-default add-to-cart"><i
+                                                <a data-href="{{route('front.addToCart',['id'=>$item->id])}}" class="btn btn-default add-to-cart"><i
                                                             class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
 
