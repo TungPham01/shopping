@@ -24,17 +24,17 @@
                                 <img src="{{ asset($product->feature_image_path) }}" height="220px;" alt=""/>
                                 <h2>{{ number_format($product->price )}} VNĐ</h2>
                                 <p>{{ $product->name }}</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i
+                                <a data-href="{{route('front.addToCart',['id'=>$product->id])}}" class="btn btn-default add-to-cart"><i
                                             class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
-                            <div class="product-overlay">
-                                <div class="overlay-content">
-                                    <h2>{{ number_format($product->price )}}</h2>
-                                    <p>{{ $product->name }}</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                                class="fa fa-shopping-cart"></i>Add to cart</a>
-                                </div>
-                            </div>
+                            {{--<div class="product-overlay">--}}
+                                {{--<div class="overlay-content">--}}
+                                    {{--<h2>{{ number_format($product->price )}}</h2>--}}
+                                    {{--<p>{{ $product->name }}</p>--}}
+                                    {{--<a href="#" class="btn btn-default add-to-cart"><i--}}
+                                                {{--class="fa fa-shopping-cart"></i>Add to cart</a>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
                         <div class="choose">
                             <ul class="nav nav-pills nav-justified">
@@ -73,7 +73,7 @@
                                                      alt=""/>
                                                 <h2>{{ number_format($item->price )}} VNĐ</h2>
                                                 <p>{{ $item->name }}</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
+                                                <a data-href="{{route('front.addToCart',['id'=>$product->id])}}" class="btn btn-default add-to-cart"><i
                                                             class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
 
@@ -112,7 +112,7 @@
                                                      alt=""/>
                                                 <h2>{{ number_format($item->price) }} VNĐ</h2>
                                                 <p>{{ $item->name }}</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
+                                                <a data-href="{{route('front.addToCart',['id'=>$product->id])}}" class="btn btn-default add-to-cart"><i
                                                             class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
 
