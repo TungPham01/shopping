@@ -70,6 +70,15 @@ Route::prefix('admin')->middleware('checkLogin')->group(function () {
         Route::post('/update/{id}','SettingController@update')->name('setting.update');
         Route::get('/delete/{id}','SettingController@delete')->name('setting.delete');
     });
+
+    Route::prefix('users')->group(function () {
+        Route::get('/','AdminSystemController@index')->name('users.index');
+        Route::get('/create','AdminSystemController@create')->name('users.create');
+        Route::post('/store','AdminSystemController@store')->name('users.store');
+        Route::get('/edit/{id}','AdminSystemController@edit')->name('users.edit');
+        Route::post('/update/{id}','AdminSystemController@update')->name('users.update');
+        Route::get('/delete/{id}','AdminSystemController@delete')->name('users.delete');
+    });
 });
 
 // CLIENT
