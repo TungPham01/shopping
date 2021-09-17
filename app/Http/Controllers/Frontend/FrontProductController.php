@@ -23,6 +23,10 @@ class FrontProductController extends Controller
         return view('front.product.index',compact('products','slider','categories','name'));
     }
 
+    public function checkOut(){
+        return view('front.cart.checkout');
+    }
+
     public function addToCart($id){
         $products = Product::findOrFail($id);
         \Cart::add([
@@ -38,18 +42,26 @@ class FrontProductController extends Controller
         ]);
         return response()->json([
             'code' => 200,
-            'message' => 'Thêm thành công'
+            'message' => 'success'
         ],200);
     }
 
     public function showCart() {
         $carts = \Cart::content();
-        return view('front.cart.checkout',compact('carts'));
+        return view('front.cart.cart',compact('carts'));
     }
 
     public function removeCart($id) {
         \Cart::remove($id);
         return redirect()->route('front.showCart');
+    }
+
+    public function removeAll() {
+        \Cart::destroy();
+        return response()->json([
+            'code' => 200,
+            'message' => 'success'
+        ],200);
     }
 
     public  function editCart(Request $request) {

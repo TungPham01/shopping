@@ -80,5 +80,8 @@ Route::get('/products','Frontend\FrontProductController@index')->name('front.pro
 Route::get('/products/add-to-cart/{id}','Frontend\FrontProductController@addToCart')->name('front.addToCart');
 Route::get('/products/show-cart','Frontend\FrontProductController@showCart')->name('front.showCart');
 Route::get('/products/remove-cart/{id}','Frontend\FrontProductController@removeCart')->name('front.removeCart');
+Route::get('/products/remove-all','Frontend\FrontProductController@removeAll')->name('front.removeAll');
 Route::post('/products/edit-cart','Frontend\FrontProductController@editCart')->name('front.editCart');
+
+Route::get('/products/checkout','Frontend\FrontProductController@checkOut')->name('front.checkOut');
 

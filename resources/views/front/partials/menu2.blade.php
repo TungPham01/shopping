@@ -18,7 +18,13 @@
                                 <li><a href="{{ route('front.products') }}">Products</a></li>
                                 <li><a href="product-details.html">Product Details</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="cart.html">Cart</a></li>
+                                <li>
+                                    <a href="{{ route('front.showCart') }}"> Cart
+                                        <span class="badge bg-dark text-white ms-1 rounded-pill">
+                                        {{ \Cart::count() }}
+                                    </span>
+                                    </a>
+                                </li>
                                 <li><a href="login.html">Login</a></li>
                             </ul>
                         </li>
