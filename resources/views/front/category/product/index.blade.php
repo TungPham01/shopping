@@ -15,16 +15,8 @@
                                     <img src="{{ $product->feature_image_path }}" height="220px;" alt=""/>
                                     <h2>{{ number_format($product->price ) }} VNĐ</h2>
                                     <p>{{ $product->name }}</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+                                    <a href="{{route('front.addToCart',['id'=>$product->id])}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
                                         to cart</a>
-                                </div>
-                                <div class="product-overlay">
-                                    <div class="overlay-content">
-                                        <h2>{{ number_format($product->price ) }} VNĐ</h2>
-                                        <p>{{ $product->name }}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i
-                                                    class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    </div>
                                 </div>
                             </div>
                             <div class="choose">

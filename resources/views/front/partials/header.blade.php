@@ -66,8 +66,14 @@
                         <ul class="nav navbar-nav">
                             <li><a href=""><i class="fa fa-user"></i> Account</a></li>
                             <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="{{ route('front.showCart') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href=""><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                            {{--<li><a href=""><i class="fa fa-crosshairs"></i> Checkout</a></li>--}}
+                            <li>
+                                <a href="{{ route('front.showCart') }}"><i class="fa fa-shopping-cart"></i> Cart
+                                    <span class="badge bg-dark text-white ms-1 rounded-pill">
+                                        {{ \Cart::count() }}
+                                    </span>
+                                </a>
+                            </li>
                             <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>

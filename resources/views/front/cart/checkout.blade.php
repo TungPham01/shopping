@@ -172,9 +172,9 @@
         {{--$('.delete_session').click(function () {--}}
             {{--$('.swal2-center').removeClass('swal2-container')--}}
         {{--})--}}
-        {{--$('body').click(function () {--}}
-            {{--$('.swal2-center').removeClass('swal2-container')--}}
-        {{--})--}}
+        {{--// $('body').click(function () {--}}
+        {{--//     $('.swal2-center').removeClass('swal2-container')--}}
+        {{--// })--}}
     {{--})--}}
 {{--</script>--}}
 @yield('js')
