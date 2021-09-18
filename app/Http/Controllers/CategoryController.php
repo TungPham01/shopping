@@ -42,6 +42,7 @@ class CategoryController extends Controller
 //                }
 //            }
 //        }
+        // xuất ra các thẻ option do có nối chuỗi
         $htmlOption = $this->getCategory($parentId = 0);
 
         return view('admin.category.add',compact('htmlOption'));
@@ -59,15 +60,7 @@ class CategoryController extends Controller
 //        return $this->htmlSelect;
 //    }
 
-    public function store(Request $request){
-        $this->category->create([
-            'name' => $request->name,
-            'parent_id' =>$request->parent_id,
-            'slug' =>Str::slug($request->name)
-        ]);
-        return redirect(route('categories.index'))->with('status','Thêm thành công');
-    }
-
+    // do edit và add đều có nên tạo hàm để dùng chung
     public function getCategory($parentId) {
         $data = $this->category->all();
         $recusive = new Recusive($data);
@@ -78,8 +71,18 @@ class CategoryController extends Controller
 
     public function edit($id){
         $category = $this->category->find($id);
+        // $category->parent_id: LẤY parent_id hiện tại để biết foreach cho selected trường đc chọn = $category->parent_id
         $htmlOption = $this->getCategory($category->parent_id);
         return view('admin.category.edit',compact('category','htmlOption'));
+    }
+
+    public function store(Request $request){
+        $this->category->create([
+            'name' => $request->name,
+            'parent_id' =>$request->parent_id,
+            'slug' =>Str::slug($request->name)
+        ]);
+        return redirect(route('categories.index'))->with('status','Thêm thành công');
     }
 
     public function update( $id, Request $request) {

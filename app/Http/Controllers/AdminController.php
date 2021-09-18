@@ -10,7 +10,7 @@ class AdminController extends Controller
     //
     public function loginAdmin() {
         if(Auth::check()){
-            return redirect()->to('home');
+            return redirect()->route('admin.home');
         }
         return view('admin.login');
     }
@@ -22,7 +22,7 @@ class AdminController extends Controller
             'password'=>$request->password
         ])){
 //        ],$remember)){
-            return redirect()->to('home');
+            return redirect()->route('admin.home');
         }else{
             return redirect()->to('admin')->with('status','Sai tài khoản!');
         }

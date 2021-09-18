@@ -78,6 +78,8 @@ class AdminProductController extends Controller
                 foreach($request->image_path as $fileItem){
                     $dataProductImageDetail = Helper::storeHelperUploadMultiple($fileItem,'product');
                     // C2:
+//                    $product vừa thêm nên lấy được luôn giá trị của nó
+                    // THÊm vào bảng con dựa vào id bảng chính product => biết luôn id cho bảng con tương ứng là gì
                     $product->productImage()->create([
                         'image_path' => $dataProductImageDetail['file_path'],
                         'image_name' => $dataProductImageDetail['file_name'],

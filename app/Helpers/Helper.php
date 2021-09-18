@@ -21,7 +21,7 @@ class Helper
     {
         // kiểm tra xem có file upload không
         if ($request->hasFile($fieldName)) {
-            // tên cột gửi lên
+            // dữ liệu tên cột gửi lên
             $file = $request->$fieldName;
 
             // lấy tên gốc của ảnh để sau tiện tìm ảnh
@@ -30,7 +30,7 @@ class Helper
             // lấy tên upload lên db
             $fileNameDB = Str::random(20) . '.' . $file->getClientOriginalExtension();;
 
-            // lưu file vào thư mục
+            // lưu file vào thư mục: thêm public ở đầu để lấy được từ public ra
             $filePath = $request->file($fieldName)->storeAs('public/' . $folderName . '/' . auth()->id(), $fileNameDB);
 
             // dữ liệu được lấy
@@ -45,6 +45,7 @@ class Helper
         return null;
     }
 
+    // truyền file: do đọc qua từng foreach dữ liệu them vào, nên đã biết fields nào
     public static function storeHelperUploadMultiple($file, $folderName)
     {
         // lấy tên gốc của ảnh để sau tiện tìm ảnh

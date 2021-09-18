@@ -17,9 +17,7 @@ Route::get('/admin', 'AdminController@loginAdmin')->name('admin.login');
 Route::get('/adminLogout', 'AdminController@logoutAdmin')->name('admin.logout');
 Route::post('/admin', 'AdminController@postLoginAdmin');
 
-Route::get('/home', function () {
-    return view('admin.home');
-})->name('admin.home');
+
 
 // cấu hình thư viện quản lý file 'laravel-filemanager'
 Route::group(['prefix' => 'laravel-filemanager', 'middleware'], function () {
@@ -27,6 +25,10 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware'], function () {
 });
 
 Route::prefix('admin')->middleware('checkLogin')->group(function () {
+    Route::get('/home', function () {
+        return view('admin.home');
+    })->name('admin.home');
+
     Route::prefix('categories')->group(function () {
         Route::get('/','CategoryController@index')->name('categories.index');
         Route::get('/create','CategoryController@create')->name('categories.create');

@@ -28,6 +28,7 @@ class ProductAddRequest extends FormRequest
             'price' => 'required|numeric',
             'category_id' => 'required',
             'contents' => 'required',
+            'tags' => 'required',
 
         ];
     }
@@ -42,6 +43,7 @@ class ProductAddRequest extends FormRequest
             'price.numeric' => 'Gía tiền phải là một số',
             'category_id' => 'Danh mục không được phép để trống',
             'contents' => 'Nội dụng không được phép để trống',
+            'tags' => 'Tag không được phép để trống',
 
         ];
     }

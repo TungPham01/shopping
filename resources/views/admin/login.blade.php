@@ -47,7 +47,7 @@
                             </div>
                         @endif
                         <div class="form-group">
-                            <label for="username" class="text-info">Username:</label><br>
+                            <label for="username" class="text-info">Email:</label><br>
                             <input type="text" name="email" id="username" class="form-control">
                         </div>
                         <div class="form-group">
