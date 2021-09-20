@@ -83,8 +83,8 @@
                     </tr>
                 @endforeach
                 <tr>
-                    <td class="text-center" colspan="6">
-                        <a class="btn btn-default check_out remove-all" href="{{ route('front.removeAll') }}">Delete all</a>
+                    <td class="text-right " style="padding-right: 103px" colspan="6">
+                        <a class="btn btn-default check_out remove-all " href="{{ route('front.removeAll') }}">Delete all</a>
                     </td>
                 </tr>
                 <tr>

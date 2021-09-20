@@ -24,14 +24,17 @@
                 <div class="row">
                     <div class="col-12 my-2">
                         <div class="btn-group float-right">
-                            <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">
-                                Add Setting
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ route('setting.create') . '?type=text' }}">Text</a></li>
-                                <li><a href="{{ route('setting.create') . '?type=textarea'}}">Textarea</a></li>
-                            </ul>
+                            <div class="btn-group float-right">
+                                <a href="{{ route('setting.create') . '?type=text' }}" class="btn btn-success text-white float-right">Add</a>
+                            </div>
+                            {{--<a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">--}}
+                                {{--Add Setting--}}
+                                {{--<span class="caret"></span>--}}
+                            {{--</a>--}}
+                            {{--<ul class="dropdown-menu">--}}
+                                {{--<li><a href="{{ route('setting.create') . '?type=text' }}">Text</a></li>--}}
+                                {{--<li><a href="{{ route('setting.create') . '?type=textarea'}}">Textarea</a></li>--}}
+                            {{--</ul>--}}
                         </div>
                     </div>
                     <div class="col-12">
@@ -41,7 +44,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Config key</th>
                                 <th scope="col">Config value</th>
-                                <th scope="col">Type</th>
+                                {{--<th scope="col">Type</th>--}}
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
@@ -54,7 +57,7 @@
                                         <td scope="row">{{ $i++ }}</td>
                                         <td scope="row">{{ $set->config_key }}</td>
                                         <td scope="row">{!! $set->config_value !!} </td>
-                                        <td scope="row">{{ $set->type }} </td>
+                                        {{--<td scope="row">{{ $set->type }} </td>--}}
                                         <td>
                                         <a href="{{route('setting.edit',['id'=>$set->id,'type'=>$set->type])}}" class="btn btn-warning">Edit</a>
                                         <a data-url="{{route('setting.delete',$set->id)}}" href="" class="btn btn-danger action_delete">Delete</a>

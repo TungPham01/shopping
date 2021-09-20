@@ -9,18 +9,18 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
-    //
-    public function index(Request $request)  {
-        $categories = $this->category->latest()->paginate(config('constant.admin.paginate'));
-        $page = $request->page ?? 1;
-        return view('admin.category.index',compact('categories','page'));
-    }
-
     private $category;
 
     public function __construct(Category $category)
     {
         $this->category =$category;
+    }
+
+    //
+    public function index(Request $request)  {
+        $categories = $this->category->latest()->paginate(config('constant.admin.paginate'));
+        $page = $request->page ?? 1;
+        return view('admin.category.index',compact('categories','page'));
     }
 
     public function create() {
