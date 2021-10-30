@@ -54,22 +54,21 @@
                             <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                             <li>
                                 <div class="btn-group pull-right clearfix">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default get dropdown-toggle" style="margin: 0" data-toggle="dropdown">
-                                            {{ __('front.language') }}
-                                            <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            @foreach (\App\Helpers\Helper::LANGUAGE as $key => $language)
-                                                <li>
-                                                    <a class="dropdown-item text-uppercase" href="{{ route('language', ['language' => $key]) }}">
-                                                        <img width="31px" class="logo-language mr-3" src="{{ asset('storage/logo/'.strtolower($key).'.png')}}" />
-                                                        <span class="text-danger ">{{ $language }}</span>
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                                    {{--<button type="button" class="btn btn-default dropdown-toggle usa" style="margin-right: 0" data-toggle="dropdown">--}}
+                                    <button type="button" class="btn btn-default get dropdown-toggle " style="margin: 0" data-toggle="dropdown">
+                                        {{ __('front.language') }}
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        @foreach (\App\Helpers\Helper::LANGUAGE as $key => $language)
+                                            <li style="width: 100%; padding: 0" class="">
+                                                <a class="hover_language" style="padding: 5px 15px" href="{{ route('language', ['language' => $key]) }}">
+                                                    <img width="31px" class="logo-language mr-3" src="{{ asset('storage/logo/'.strtolower($key).'.png')}}" />
+                                                    <span class="">{{ $language }}</span>
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </li>
                         </ul>

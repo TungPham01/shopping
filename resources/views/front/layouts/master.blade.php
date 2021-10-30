@@ -13,6 +13,7 @@
         <link href="{{asset('eshopper/css/price-range.css')}}" rel="stylesheet">
         <link href="{{asset('eshopper/css/animate.css')}}" rel="stylesheet">
         <link href="{{asset('eshopper/css/main.css')}}" rel="stylesheet">
+        <link href="{{asset('front/style.css')}}" rel="stylesheet">
     </head>
     <body>
     @include('front.partials.header')
