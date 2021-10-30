@@ -44,14 +44,20 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="">Canada</a></li>
-                                <li><a href="">UK</a></li>
+                                @foreach (\App\Helpers\Helper::LANGUAGE as $key => $language)
+                                    <li>
+                                        <a class="dropdown-item text-uppercase" href="{{ route('language', ['language' => $key]) }}">
+                                            <img width="31px" class="logo-language mr-3" src="{{ asset('storage/logo/'.strtolower($key).'.png')}}" />
+                                            <span class="text-danger ">{{ $language }}</span>
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
 
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                DOLLAR
+                                {{__('front.test.hello')}}
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">

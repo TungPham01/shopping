@@ -97,3 +97,5 @@ Route::post('/products/edit-cart','Frontend\FrontProductController@editCart')->n
 
 Route::get('/products/checkout','Frontend\FrontProductController@checkOut')->name('front.checkOut');
 
+// Local
+Route::get('language/{language}', 'LanguageController@index')->name('language');

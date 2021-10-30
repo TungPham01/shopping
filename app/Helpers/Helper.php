@@ -8,6 +8,11 @@ use Illuminate\Support\Str;
 
 class Helper
 {
+    const LANGUAGE = [
+        'vi' => 'Việt Nam',
+        'en' => 'English'
+    ];
+
     public static function getConfigValueFromSettingTable($configKey)
     {
         $setting = Setting::where('config_key', $configKey)->first();
