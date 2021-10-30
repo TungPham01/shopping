@@ -15,5 +15,7 @@ return [
 
     'test' => [
         'hello' => 'xin chào',
-    ]
+    ],
+
+    'language' => 'Ngôn ngữ'
 ];

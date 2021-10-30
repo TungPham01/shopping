@@ -37,42 +37,13 @@
                     <div class="logo pull-left">
                         <a href="index.html"><img src="/eshopper/images/home/logo.png" alt=""/></a>
                     </div>
-                    <div class="btn-group pull-right clearfix">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                USA
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                @foreach (\App\Helpers\Helper::LANGUAGE as $key => $language)
-                                    <li>
-                                        <a class="dropdown-item text-uppercase" href="{{ route('language', ['language' => $key]) }}">
-                                            <img width="31px" class="logo-language mr-3" src="{{ asset('storage/logo/'.strtolower($key).'.png')}}" />
-                                            <span class="text-danger ">{{ $language }}</span>
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                {{__('front.test.hello')}}
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="">Canadian Dollar</a></li>
-                                <li><a href="">Pound</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-md-8 clearfix">
                     <div class="shop-menu clearfix pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href=""><i class="fa fa-user"></i> Account</a></li>
                             <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                            {{--<li><a href=""><i class="fa fa-crosshairs"></i> Checkout</a></li>--}}
+                            <li><a href=""><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li>
                                 <a href="{{ route('front.showCart') }}"><i class="fa fa-shopping-cart"></i> Cart
                                     <span class="badge bg-dark text-white ms-1 rounded-pill">
@@ -81,6 +52,26 @@
                                 </a>
                             </li>
                             <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                            <li>
+                                <div class="btn-group pull-right clearfix">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default get dropdown-toggle" style="margin: 0" data-toggle="dropdown">
+                                            {{ __('front.language') }}
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            @foreach (\App\Helpers\Helper::LANGUAGE as $key => $language)
+                                                <li>
+                                                    <a class="dropdown-item text-uppercase" href="{{ route('language', ['language' => $key]) }}">
+                                                        <img width="31px" class="logo-language mr-3" src="{{ asset('storage/logo/'.strtolower($key).'.png')}}" />
+                                                        <span class="text-danger ">{{ $language }}</span>
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -88,23 +79,5 @@
         </div>
     </div><!--/header-middle-->
 
-    <div class="header-bottom"><!--header-bottom-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle " data-toggle="collapse"
-                                data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    @include('front.partials.menu2')
-                    {{--@include('front.partials.menu')--}}
-                </div>
-            </div>
-        </div>
-    </div><!--/header-bottom-->
+    @include('front.partials.menu2')
 </header><!--/header-->

@@ -15,5 +15,7 @@ return [
 
     'test' => [
         'hello' => 'hello',
-    ]
+    ],
+
+    'language' => 'Language'
 ];
