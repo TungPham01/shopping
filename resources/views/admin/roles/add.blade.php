@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin')
 
 @section('title')
-    Thêm mới Setting
+    Thêm vai trò
 @endsection
 
 @section('css')
@@ -73,7 +73,7 @@
                                             @foreach($parent->permissionsChildren as $children)
                                                 <div class="card-body col-3">
                                                     <h5 class="card-title">
-                                                        <input id="{{ $children->name }}" type="checkbox" value="{{ $children->id }}" class="checkbox_childer">
+                                                        <input id="{{ $children->name }}" type="checkbox" name="permission_id[]" value="{{ $children->id }}" class="checkbox_childer">
                                                         <label for="{{ $children->name }}">
                                                             {{ $children->name }}
                                                         </label>

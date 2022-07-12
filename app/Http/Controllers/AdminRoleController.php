@@ -37,7 +37,8 @@ class AdminRoleController extends Controller
               'name' => $request->name ?? '',
               'display_name' => $request->display_name ?? '',
             ];
-            $this->role->create($postData);
+            $role = $this->role->create($postData);
+            $role->permissions()->attach($request->permission_id);
             Session::flash('message', 'Thêm thành công!!!');
             Session::flash('status', 'alert-success');
             return redirect()->route('roles.index');
@@ -51,16 +52,20 @@ class AdminRoleController extends Controller
 
     public function edit($id){
         $role = $this->role->find($id);
-        return view('admin.roles.edit',compact('role'));
+        $permissionParent = $this->permission->where('parent_id', 0)->get();
+        $permissionsChecked = $role->permissions;
+        return view('admin.roles.edit',compact('role', 'permissionParent', 'permissionsChecked'));
     }
 
     public function update($id,Request $request){
         try{
             $postData = $request->all();
-            $role = Role::findOrFail($id);
+            $role = $this->role->findOrFail($id);
             $role->name = $postData['name'];
             $role->display_name = $postData['display_name'];
             $role->save();
+
+            $this->role->find($id)->permissions()->sync($request->permission_id);
             Session::flash('message', 'Cập nhật thành công!!!');
             Session::flash('status', 'alert-success');
             return redirect()->route('roles.index');
@@ -74,6 +79,7 @@ class AdminRoleController extends Controller
 
     public function delete($id){
         try{
+            $this->role->find($id)->permissions()->detach();
             $this->role->find($id)->delete();
             return response()->json([
                 'code' => 200,
