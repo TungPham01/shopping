@@ -51,6 +51,14 @@
                                 <label>Password confirm: </label>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Nhập lại password" name="password_confirmation" value="">
                             </div>
+                            <div class="form-group">
+                                <label>Chọn vai trò: </label>
+                                <select class="form-control" name="role_id[]" id="" multiple>
+                                    @foreach ($roles as $role)
+                                        <option {{ $roleOfUser->contains('id',$role->id) ? 'selected' : ''}} value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>

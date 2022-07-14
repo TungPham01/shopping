@@ -29,11 +29,15 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('super-admin', function ($user) {
-            return $user->is_admin == 1;
+            return $user->is_admin;
+            // ~~ $user->is_admin == 1
             // 1 true
             // 0 false
         });
 
-        //
+        Gate::define('category-list', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.list-category'));
+        });
+
     }
 }
