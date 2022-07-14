@@ -81,6 +81,15 @@ Route::prefix('admin')->middleware('checkLogin')->group(function () {
         Route::post('/update/{id}','AdminSystemController@update')->name('users.update');
         Route::get('/delete/{id}','AdminSystemController@delete')->name('users.delete');
     });
+
+    Route::prefix('roles')->group(function () {
+        Route::get('/','AdminRoleController@index')->name('roles.index');
+        Route::get('/create','AdminRoleController@create')->name('roles.create');
+        Route::post('/store','AdminRoleController@store')->name('roles.store');
+        Route::get('/edit/{id}','AdminRoleController@edit')->name('roles.edit');
+        Route::post('/update/{id}','AdminRoleController@update')->name('roles.update');
+        Route::get('/delete/{id}','AdminRoleController@delete')->name('roles.delete');
+    });
 });
 
 // CLIENT

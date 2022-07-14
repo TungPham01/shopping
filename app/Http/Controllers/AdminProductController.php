@@ -14,6 +14,7 @@ use DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\ProductAddRequest;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 
 class AdminProductController extends Controller
 {
@@ -40,8 +41,13 @@ class AdminProductController extends Controller
     }
 
     public  function  create() {
-        $htmlOption = $this->getCategory($parentId = 0);
-        return view('admin.product.add',compact('htmlOption'));
+        if (Gate::allows('super-admin')) {
+            // The current user can edit settings
+            $htmlOption = $this->getCategory($parentId = 0);
+            return view('admin.product.add',compact('htmlOption'));
+        } else {
+            abort(404);
+        }
     }
 
     public function getCategory($parentId) {
@@ -123,8 +129,12 @@ class AdminProductController extends Controller
 
     public function edit($id) {
         $product = $this->product->findOrFail($id);
-        $htmlOption = $this->getCategory($product->category_id);
-        return view('admin.product.edit',compact('htmlOption','product'));
+        if(auth()->user()->can('view', $product)) {
+            $htmlOption = $this->getCategory($product->category_id);
+            return view('admin.product.edit',compact('htmlOption','product'));
+        } else {
+            abort(404);
+        }
     }
 
     public function update(Request $request, $id){
