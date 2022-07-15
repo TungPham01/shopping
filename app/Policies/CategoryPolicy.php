@@ -28,9 +28,9 @@ class CategoryPolicy
      * @param  \App\Category  $category
      * @return mixed
      */
-    public function view(User $user, Category $category)
+    public function view(User $user)
     {
-        //
+        return $user->checkPermissionAccess(config('permissions.access.list-category'));
     }
 
     /**
@@ -41,7 +41,7 @@ class CategoryPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->checkPermissionAccess(config('permissions.access.add-category'));
     }
 
     /**

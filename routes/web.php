@@ -31,7 +31,7 @@ Route::prefix('admin')->middleware('checkLogin')->group(function () {
 
     Route::prefix('categories')->group(function () {
         Route::get('/','CategoryController@index')->name('categories.index')->middleware('can:category-list');
-        Route::get('/create','CategoryController@create')->name('categories.create');
+        Route::get('/create','CategoryController@create')->name('categories.create')->middleware('can:category-add');
         Route::post('/store','CategoryController@store')->name('categories.store');
         Route::get('/edit/{id}','CategoryController@edit')->name('categories.edit');
         Route::post('/update/{id}','CategoryController@update')->name('categories.update');

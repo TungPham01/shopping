@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use App\Policies\AdminProductPolicy;
+use App\Policies\CategoryPolicy;
 use App\Product;
 
 class AuthServiceProvider extends ServiceProvider
@@ -27,6 +28,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        $this->gateDefineCategory();
 
         Gate::define('super-admin', function ($user) {
             return $user->is_admin;
@@ -34,10 +36,10 @@ class AuthServiceProvider extends ServiceProvider
             // 1 true
             // 0 false
         });
+    }
 
-        Gate::define('category-list', function ($user) {
-            return $user->checkPermissionAccess(config('permissions.access.list-category'));
-        });
-
+    public function gateDefineCategory() {
+        Gate::define('category-list', 'App\Policies\CategoryPolicy@view');
+        Gate::define('category-add', 'App\Policies\CategoryPolicy@create');
     }
 }
